@@ -1,3 +1,4 @@
 *.o
 app
 libshare_BBB.so
+build
