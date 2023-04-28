@@ -25,7 +25,13 @@ $(LIB_NAME):$(DEP_LIB_SH)
 .PHONY: all clean install 
 
 install:
-	
+ifneq (,$(wildcard $(TARGET)))
+	@echo "Target exist"
+	@read -p "IP address and place: " address; \
+	scp $(TARGET) lib$(LIB_NAME).so debian@$$address
+else
+	@echo "You must to generate the binary before"
+endif
 
 clean:
 	rm -rf *.o *.so $(TARGET)
