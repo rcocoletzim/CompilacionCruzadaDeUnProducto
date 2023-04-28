@@ -1,0 +1,3 @@
+*.o
+app
+libshare_BBB.so

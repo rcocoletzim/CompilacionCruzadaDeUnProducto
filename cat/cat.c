@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-
-void cat_command(const char* path);
+#include "cat.h"
 
 /*Internal Macros*/
 #define ARGC_ERROR()    {   printf("More argument that it expected\n");\
@@ -25,13 +24,13 @@ void cat_command(const char* path);
 
 #define DUMMY_CODE()        0U
 
-int main(int argc, char const *argv[])
-{
-    printf("Hola mundo\n");
+// int main(int argc, char const *argv[])
+// {
+//     printf("Hola mundo\n");
     
-    cat_command("cat.c");
-    return 0;
-}
+//     cat_command("cat.c");
+//     return 0;
+// }
 
 
 void cat_command(const char* path)
