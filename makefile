@@ -4,11 +4,11 @@ LIB_NAME = share_BBB
 CC = gcc
 CROSS_TOOLCHAIN =
 
-VPATH = cat touch
-INCLUDE = -I cat -I touch
+VPATH = cat touch rm
+INCLUDE = -I cat -I touch -I rm
 CFLAGS = -g3 -c -O0 -Wall $(INCLUDE)
 
-DEP_LIB_SH = cat.c touch.c
+DEP_LIB_SH = cat.c touch.c rm.c argument_processing.c
 OBJ = main.o 
 MK_DIR = build
 

@@ -3,9 +3,12 @@
 #include <stdint.h>
 #include "cat.h"
 #include "touch.h"
+#include "rm.h"
 
 /*Agregar el define del comando que se agrego*/
 #define CAT_COMMAND 1U
+#define RM_COMMAND  2U
+
 
 int main(int argc, char const *argv[])
 {
@@ -15,6 +18,7 @@ int main(int argc, char const *argv[])
     /**/
     printf("Bienvenido\n Que programa desea ejecutar:\n");
     printf("1.- Cat\n");
+    printf("2.- rm\n");
     /*Agregar las demas opciones*/
 
 
@@ -28,6 +32,23 @@ int main(int argc, char const *argv[])
         {
             scanf("%s",file_name);
             cat_command((const char*)file_name);
+        }
+        else
+        {
+            printf("Dynamic memory error");
+            return 1;
+        }
+        free(file_name);
+        file_name = NULL;
+        break;
+
+    case RM_COMMAND:
+        printf("Que archivo desea eliminar: ");
+        file_name = (char*)malloc(100*(sizeof(char)));
+        if (file_name != NULL)
+        {
+            scanf("%s",file_name);
+            processing_cases_rm(2,file_name,0);
         }
         else
         {
