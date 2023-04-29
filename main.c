@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "cat.h"
+#include "touch.h"
 
 /*Agregar el define del comando que se agrego*/
 #define CAT_COMMAND 1U
