@@ -3,6 +3,6 @@
 
 
 /* Function definitions */
-int touch_command(int argc, char **argv);
+void touch_command(const char* file_name);
 
 #endif

@@ -6,21 +6,22 @@
 #include "rm.h"
 
 /*Agregar el define del comando que se agrego*/
-#define CAT_COMMAND 1U
-#define RM_COMMAND  2U
+#define CAT_COMMAND	1U
+#define RM_COMMAND	2U
+#define TOUCH_COMMAND	3U
 
 
 int main(int argc, char const *argv[])
 {
-    /*local variables*/
+    /* Local variables */
     int opcion = 0U;
     char *file_name = NULL;
-    /**/
-    printf("Bienvenido\n Que programa desea ejecutar:\n");
-    printf("1.- Cat\n");
-    printf("2.- rm\n");
-    /*Agregar las demas opciones*/
 
+    /* Main menu */
+    printf("Bienvenido\n Que programa desea ejecutar:\n");
+    printf("1.- cat\n");
+    printf("2.- rm\n");
+    printf("3.- touch\n");
 
     scanf("%d",&opcion);
     switch (opcion)
@@ -59,12 +60,27 @@ int main(int argc, char const *argv[])
         file_name = NULL;
         break;
 
-    // case comando:
-    //     break;
+    case TOUCH_COMMAND:
+	printf("Que archivo desea actualizar: ");
+	file_name = (char*) malloc(100 * sizeof(char));
+	if (file_name != NULL)
+	{
+	    scanf("%s", file_name);
+	    touch_command((const char*) file_name);
+	}
+	else
+	{
+	    printf("Dynamic memory error\n");
+	    return 1;
+	}
+	free(file_name);
+	file_name = NULL;
+        break;
 
     default:
         printf("Opcion no valida X,D\n");
         break;
     }
+
     return 0;
 }
